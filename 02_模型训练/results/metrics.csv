@@ -1,0 +1,4 @@
+model,accuracy,macro_f1,n_validation,parameters
+majority,0.1090686274509804,0.01966850828729282,816,{}
+rbf_svm,0.6887254901960784,0.7022612872369678,816,"{""kernel"": ""rbf"", ""C"": 10, ""gamma"": ""scale""}"
+random_forest,0.6642156862745098,0.665625278017785,816,"{""n_estimators"": 200, ""max_depth"": 20, ""min_samples_leaf"": 1}"

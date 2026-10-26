@@ -1,0 +1,89 @@
+{
+  "scope": "Full official label manifest; majority-class baseline only. No acoustic model trained. Ties choose smallest class ID, matching sklearn DummyClassifier. Original official folds, no source purge because baseline uses only label frequency.",
+  "folds": [
+    {
+      "test_fold": 1,
+      "train_n": 7859,
+      "test_n": 873,
+      "predicted_class_id": 5,
+      "accuracy": 0.10996563573883161,
+      "macro_f1": 0.019814241486068113
+    },
+    {
+      "test_fold": 2,
+      "train_n": 7844,
+      "test_n": 888,
+      "predicted_class_id": 0,
+      "accuracy": 0.11261261261261261,
+      "macro_f1": 0.020242914979757085
+    },
+    {
+      "test_fold": 3,
+      "train_n": 7807,
+      "test_n": 925,
+      "predicted_class_id": 0,
+      "accuracy": 0.10810810810810811,
+      "macro_f1": 0.01951219512195122
+    },
+    {
+      "test_fold": 4,
+      "train_n": 7742,
+      "test_n": 990,
+      "predicted_class_id": 0,
+      "accuracy": 0.10101010101010101,
+      "macro_f1": 0.01834862385321101
+    },
+    {
+      "test_fold": 5,
+      "train_n": 7796,
+      "test_n": 936,
+      "predicted_class_id": 0,
+      "accuracy": 0.10683760683760683,
+      "macro_f1": 0.019305019305019305
+    },
+    {
+      "test_fold": 6,
+      "train_n": 7909,
+      "test_n": 823,
+      "predicted_class_id": 7,
+      "accuracy": 0.08262454434993925,
+      "macro_f1": 0.01526374859708193
+    },
+    {
+      "test_fold": 7,
+      "train_n": 7894,
+      "test_n": 838,
+      "predicted_class_id": 7,
+      "accuracy": 0.09069212410501193,
+      "macro_f1": 0.01663019693654267
+    },
+    {
+      "test_fold": 8,
+      "train_n": 7926,
+      "test_n": 806,
+      "predicted_class_id": 7,
+      "accuracy": 0.0967741935483871,
+      "macro_f1": 0.01764705882352941
+    },
+    {
+      "test_fold": 9,
+      "train_n": 7916,
+      "test_n": 816,
+      "predicted_class_id": 7,
+      "accuracy": 0.10049019607843138,
+      "macro_f1": 0.01826280623608018
+    },
+    {
+      "test_fold": 10,
+      "train_n": 7895,
+      "test_n": 837,
+      "predicted_class_id": 5,
+      "accuracy": 0.1111111111111111,
+      "macro_f1": 0.02
+    }
+  ],
+  "mean_accuracy": 0.1020226233500141,
+  "std_accuracy": 0.009739052835246552,
+  "mean_macro_f1": 0.018502680533924093,
+  "std_macro_f1": 0.0016146440066219052
+}

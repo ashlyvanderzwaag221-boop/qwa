@@ -1,0 +1,15 @@
+.venv/
+00_*/vendor/
+00_*/tmp/
+00_*/logs/
+01_*/features/
+01_*/data/UrbanSound8K/audio/
+01_*/data/*.tar.gz*
+01_*/data/download_chunks/
+01_*/data/mirror_metadata.csv
+02_*/models/*.joblib
+03_*/submission/
+__pycache__/
+*.pyc
+*.tmp
+.DS_Store

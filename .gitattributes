@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.pdf binary
+*.pptx binary
+*.png binary
+*.npz binary
+*.joblib binary
+01_*/data/** -text -whitespace
+03_*/evidence/** -text -whitespace
+**/results/** -text -whitespace
+03_*/tests/majority_baseline_reference.json -text -whitespace

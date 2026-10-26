@@ -1,0 +1,113 @@
+{
+  "scope": "Development model-selection validation; NOT independent test or final 10-fold results",
+  "train_folds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "validation_fold": 9,
+  "held_out_fold": 10,
+  "n_train": 7000,
+  "n_validation": 816,
+  "n_held_out_unused": 837,
+  "n_excluded_source_overlap": 79,
+  "excluded_source_ids": [
+    "180937"
+  ],
+  "selection_metric": "macro_f1",
+  "search_grids": {
+    "rbf_svm": [
+      {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": "scale"
+      },
+      {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": 0.01
+      },
+      {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": 0.1
+      },
+      {
+        "kernel": "rbf",
+        "C": 1,
+        "gamma": "scale"
+      },
+      {
+        "kernel": "rbf",
+        "C": 1,
+        "gamma": 0.01
+      },
+      {
+        "kernel": "rbf",
+        "C": 1,
+        "gamma": 0.1
+      },
+      {
+        "kernel": "rbf",
+        "C": 10,
+        "gamma": "scale"
+      },
+      {
+        "kernel": "rbf",
+        "C": 10,
+        "gamma": 0.01
+      },
+      {
+        "kernel": "rbf",
+        "C": 10,
+        "gamma": 0.1
+      }
+    ],
+    "random_forest": [
+      {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 2
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": 20,
+        "min_samples_leaf": 1
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": 20,
+        "min_samples_leaf": 2
+      }
+    ]
+  },
+  "feature_config": {
+    "sample_rate": 22050,
+    "n_mfcc": 20,
+    "n_fft": 2048,
+    "hop_length": 512,
+    "n_mels": 128,
+    "seed": 42
+  },
+  "feature_file_sha256": "c72fea475cf1cc53a4793c2f5b052cdf1345d2209e8135a6b4b20710b67491cc",
+  "split_file_sha256": "4c776522aa32dc25abea0b342a842a3ecb6cf4581f05132905bf2c71ef4332f0",
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "librosa": "1.0.0",
+    "scikit-learn": "1.9.1",
+    "soundfile": "0.14.0",
+    "joblib": "1.6.0"
+  }
+}

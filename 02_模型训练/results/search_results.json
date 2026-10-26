@@ -1,0 +1,152 @@
+[
+  {
+    "model": "majority",
+    "parameters": {},
+    "accuracy": 0.1090686274509804,
+    "macro_f1": 0.01966850828729282,
+    "fit_seconds": 0.10021469999992405
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 0.1,
+      "gamma": "scale"
+    },
+    "accuracy": 0.6237745098039216,
+    "macro_f1": 0.6077863488604932,
+    "fit_seconds": 1.1536636000000726
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 0.1,
+      "gamma": 0.01
+    },
+    "accuracy": 0.5931372549019608,
+    "macro_f1": 0.5971478055543615,
+    "fit_seconds": 1.1545421999999235
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 0.1,
+      "gamma": 0.1
+    },
+    "accuracy": 0.4693627450980392,
+    "macro_f1": 0.4727115144318107,
+    "fit_seconds": 1.5902623000001768
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 1,
+      "gamma": "scale"
+    },
+    "accuracy": 0.6727941176470589,
+    "macro_f1": 0.6815292249291364,
+    "fit_seconds": 0.5890132999993511
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 1,
+      "gamma": 0.01
+    },
+    "accuracy": 0.6482843137254902,
+    "macro_f1": 0.6530062689385034,
+    "fit_seconds": 0.7429818999999043
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 1,
+      "gamma": 0.1
+    },
+    "accuracy": 0.5931372549019608,
+    "macro_f1": 0.5928530497175054,
+    "fit_seconds": 1.679895100000067
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 10,
+      "gamma": "scale"
+    },
+    "accuracy": 0.6887254901960784,
+    "macro_f1": 0.7022612872369678,
+    "fit_seconds": 0.7860067000001436
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 10,
+      "gamma": 0.01
+    },
+    "accuracy": 0.6740196078431373,
+    "macro_f1": 0.6905823677853571,
+    "fit_seconds": 0.5986353999996936
+  },
+  {
+    "model": "rbf_svm",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 10,
+      "gamma": 0.1
+    },
+    "accuracy": 0.5906862745098039,
+    "macro_f1": 0.5914839742472822,
+    "fit_seconds": 1.784515299999839
+  },
+  {
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 200,
+      "max_depth": null,
+      "min_samples_leaf": 1
+    },
+    "accuracy": 0.6593137254901961,
+    "macro_f1": 0.6550152318285647,
+    "fit_seconds": 1.8708669000006921
+  },
+  {
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 200,
+      "max_depth": null,
+      "min_samples_leaf": 2
+    },
+    "accuracy": 0.6580882352941176,
+    "macro_f1": 0.6535041269958957,
+    "fit_seconds": 1.8360271999999895
+  },
+  {
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_leaf": 1
+    },
+    "accuracy": 0.6642156862745098,
+    "macro_f1": 0.665625278017785,
+    "fit_seconds": 1.8503399000001082
+  },
+  {
+    "model": "random_forest",
+    "parameters": {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_leaf": 2
+    },
+    "accuracy": 0.6629901960784313,
+    "macro_f1": 0.657248896099018,
+    "fit_seconds": 1.9473792999997386
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "samples": 8732,
+  "classes": 10,
+  "recording_groups": 1297,
+  "class_counts": {
+    "dog_bark": 1000,
+    "gun_shot": 374,
+    "jackhammer": 1000,
+    "engine_idling": 1000,
+    "children_playing": 1000,
+    "siren": 929,
+    "street_music": 1000,
+    "air_conditioner": 1000,
+    "drilling": 1000,
+    "car_horn": 429
+  },
+  "fold_counts": {
+    "1": 873,
+    "2": 888,
+    "3": 925,
+    "4": 990,
+    "5": 936,
+    "6": 823,
+    "7": 838,
+    "8": 806,
+    "9": 816,
+    "10": 837
+  },
+  "recording_groups_crossing_folds": {
+    "106905": [
+      1,
+      8
+    ],
+    "132016": [
+      1,
+      4
+    ],
+    "176638": [
+      1,
+      4
+    ],
+    "180937": [
+      1,
+      9
+    ],
+    "77751": [
+      2,
+      7
+    ]
+  },
+  "metadata_and_index_agree": true,
+  "metadata_md5": "5015c37ce7d54c0bb8cd40a0b5ee2074",
+  "index_md5": "1c4940e08c1305c49b592f3d9c103e6f"
+}

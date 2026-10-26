@@ -1,0 +1,86 @@
+{
+  "rbf_svm": [
+    {
+      "model": "rbf_svm",
+      "actual": "air_conditioner",
+      "predicted": "drilling",
+      "count": 43,
+      "class_support": 100,
+      "within_class_rate": 0.43
+    },
+    {
+      "model": "rbf_svm",
+      "actual": "street_music",
+      "predicted": "children_playing",
+      "count": 21,
+      "class_support": 100,
+      "within_class_rate": 0.21
+    },
+    {
+      "model": "rbf_svm",
+      "actual": "jackhammer",
+      "predicted": "drilling",
+      "count": 20,
+      "class_support": 82,
+      "within_class_rate": 0.24390243902439024
+    },
+    {
+      "model": "rbf_svm",
+      "actual": "children_playing",
+      "predicted": "dog_bark",
+      "count": 17,
+      "class_support": 100,
+      "within_class_rate": 0.17
+    },
+    {
+      "model": "rbf_svm",
+      "actual": "air_conditioner",
+      "predicted": "street_music",
+      "count": 16,
+      "class_support": 100,
+      "within_class_rate": 0.16
+    }
+  ],
+  "random_forest": [
+    {
+      "model": "random_forest",
+      "actual": "jackhammer",
+      "predicted": "drilling",
+      "count": 32,
+      "class_support": 82,
+      "within_class_rate": 0.3902439024390244
+    },
+    {
+      "model": "random_forest",
+      "actual": "air_conditioner",
+      "predicted": "jackhammer",
+      "count": 22,
+      "class_support": 100,
+      "within_class_rate": 0.22
+    },
+    {
+      "model": "random_forest",
+      "actual": "drilling",
+      "predicted": "jackhammer",
+      "count": 21,
+      "class_support": 100,
+      "within_class_rate": 0.21
+    },
+    {
+      "model": "random_forest",
+      "actual": "air_conditioner",
+      "predicted": "drilling",
+      "count": 18,
+      "class_support": 100,
+      "within_class_rate": 0.18
+    },
+    {
+      "model": "random_forest",
+      "actual": "air_conditioner",
+      "predicted": "street_music",
+      "count": 18,
+      "class_support": 100,
+      "within_class_rate": 0.18
+    }
+  ]
+}

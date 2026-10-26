@@ -1,0 +1,29 @@
+URBAN SOUND CLASSIFICATION
+Second Project Report / Milestone
+
+DATA
+We use UrbanSound8K: 8,732 labeled WAV clips, ten urban sound classes and ten predefined folds. Clips are nominally up to four seconds long (decoded durations: 0.05-4.04 s). Seven classes contain 1,000 clips each; siren has 929, car horn 429 and gun shot 374. All audio files pass the official per-file MD5 checks, and metadata agree with the Soundata index. Observed sampling rates range from 8,000 to 192,000 Hz, with mono or stereo channels. We convert audio to mono at 22,050 Hz and summarize 20 MFCCs by their temporal means and standard deviations (40 features).
+
+MODELS AND EVALUATION
+Following the proposal feedback, we explicitly use an RBF kernel for the SVM and compare it with a random forest and a majority-class reference. Training uses folds 1-8 (7,000 clips after excluding 79 clips sharing an original recording source with validation data). Fold 9 provides 816 validation clips; fold 10 (837 clips) remains unused for fitting and scoring. We fit SVM standardization on training features only. We select settings by validation macro-F1 from nine SVM and four forest configurations. Selected SVM: C=10, gamma=scale. Selected forest: 200 trees, max_depth=20, min_samples_leaf=1.
+
+PROGRESS SINCE THE PROPOSAL
+We completed full data acquisition, checksum and metadata checks, extraction of the 8,732 x 40 feature matrix, and the first model comparison. The submission package includes executable scripts, pinned dependencies, split manifests, tuning logs, per-clip predictions, confusion matrices and saved models. Nine unit tests pass, and reloading all three models reproduces the saved predictions and metrics. These scores come from the validation set used for model selection. They are preliminary and are not independent test scores or directly comparable to published ten-fold benchmarks.
+
+Model | Validation accuracy | Validation macro-F1
+Majority predictor | 10.91% | 0.0197
+RBF-SVM | 68.87% | 0.7023
+Random forest | 66.42% | 0.6656
+
+PROBLEMS AND LIMITATIONS
+1. Source leakage. Clips from the same original recording can share background acoustics, inflating validation scores without demonstrating generalization to new recording environments. We checked original recording-source IDs, not only duplicate filenames, and excluded 79 clips from training to reduce this risk. We retained the original audio files.
+
+2. Class imbalance. Macro-F1 gives each class equal weight in evaluation but does not change training sample counts. We use it with per-class analysis to assess performance more fully. We have not yet tested whether class weighting or oversampling improves results.
+
+3. Error interpretation. On validation data, RBF-SVM predicted drilling for 43 of 100 air-conditioner clips. Similar spectra, background interference, and loss of temporal order through MFCC mean/standard-deviation aggregation are possible explanations, not established causes. We need to listen to misclassified clips and compare alternative feature representations.
+
+NEXT STEPS
+Freeze the experimental protocol and perform outer ten-fold evaluation with tuning confined to the training portion of each round. Analyze per-class errors and evaluate added white noise at 20, 10 and 0 dB SNR. Responsibilities: 孙煜皓 handles data and features; 茅人方 handles models and tuning; 程志阳 handles evaluation, reproducibility and noise experiments.
+
+Source: https://urbansounddataset.weebly.com/urbansound8k.html
+Code and experiment evidence: https://github.com/ashlyvanderzwaag221-boop/qwa

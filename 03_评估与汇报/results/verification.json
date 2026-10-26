@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "n_features": 8732,
+  "models": [
+    {
+      "model": "majority",
+      "saved_model_reproduces_predictions": true,
+      "metrics_recomputed": true
+    },
+    {
+      "model": "rbf_svm",
+      "saved_model_reproduces_predictions": true,
+      "metrics_recomputed": true
+    },
+    {
+      "model": "random_forest",
+      "saved_model_reproduces_predictions": true,
+      "metrics_recomputed": true
+    }
+  ],
+  "source_overlap_train_vs_evaluation": 0,
+  "fold10_scored": false,
+  "training_only_scaler_verified": true
+}

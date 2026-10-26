@@ -1,0 +1,11 @@
+{
+  "dataset_page": "https://urbansounddataset.weebly.com/urbansound8k.html",
+  "archive_url": "https://zenodo.org/records/1203745/files/UrbanSound8K.tar.gz?download=1",
+  "archive_expected_bytes": 6023741708,
+  "archive_expected_md5": "9aa69802bbf37fb986f71ec1483a196e",
+  "index_url": "https://zenodo.org/records/11176928/files/urbansound8k_index_1.0.json?download=1",
+  "index_md5": "1c4940e08c1305c49b592f3d9c103e6f",
+  "metadata_md5": "5015c37ce7d54c0bb8cd40a0b5ee2074",
+  "metadata_verified_against_soundata_checksum": true,
+  "metadata_early_mirror": "https://huggingface.co/datasets/danavery/urbansound8K/resolve/8aa9177a0c5a6949ee4ee4b7fcabb01dfd4ae466/UrbanSound8K.csv"
+}

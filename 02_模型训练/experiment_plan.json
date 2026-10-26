@@ -1,0 +1,98 @@
+{
+  "stage": "milestone development",
+  "train_folds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "validation_fold": 9,
+  "unused_fold": 10,
+  "source_overlap_policy": "exclude training sources appearing in validation or held-out folds",
+  "selection_metric": "macro_f1",
+  "search_grids": {
+    "rbf_svm": [
+      {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": "scale"
+      },
+      {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": 0.01
+      },
+      {
+        "kernel": "rbf",
+        "C": 0.1,
+        "gamma": 0.1
+      },
+      {
+        "kernel": "rbf",
+        "C": 1,
+        "gamma": "scale"
+      },
+      {
+        "kernel": "rbf",
+        "C": 1,
+        "gamma": 0.01
+      },
+      {
+        "kernel": "rbf",
+        "C": 1,
+        "gamma": 0.1
+      },
+      {
+        "kernel": "rbf",
+        "C": 10,
+        "gamma": "scale"
+      },
+      {
+        "kernel": "rbf",
+        "C": 10,
+        "gamma": 0.01
+      },
+      {
+        "kernel": "rbf",
+        "C": 10,
+        "gamma": 0.1
+      }
+    ],
+    "random_forest": [
+      {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 1
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 2
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": 20,
+        "min_samples_leaf": 1
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": 20,
+        "min_samples_leaf": 2
+      }
+    ]
+  },
+  "features": {
+    "sample_rate": 22050,
+    "n_mfcc": 20,
+    "n_fft": 2048,
+    "hop_length": 512,
+    "n_mels": 128,
+    "seed": 42
+  },
+  "final_ten_fold_evaluation": "future work",
+  "added_noise_experiments": "future work"
+}
