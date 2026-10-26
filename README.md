@@ -71,7 +71,7 @@ The main training entry is `02_模型训练/experiment.py`. The shared `pipeline
 
 ## Reproduce the work
 
-Our recorded environment uses **Python 3.12**. Exact package versions are in `00_公共支持/requirements-lock.txt`. The commands below run from the repository root in **PowerShell on Windows**.
+Our recorded environment uses **Python 3.12**. Exact package versions are in `00_公共支持/requirements-lock.txt`. The commands below invoke Python directly from the repository root in a **Windows PowerShell terminal**.
 
 ### 1. Create the environment
 
@@ -101,7 +101,7 @@ The official compressed archive is about 6.02 GB; reserve additional disk space 
 .\.venv\Scripts\python.exe '.\03_评估与汇报\verify_results.py'
 ```
 
-An optional PowerShell wrapper, `run_milestone.ps1`, runs the same three stages. Use `-SkipDownload` only when the original audio is already complete. The Python commands above make each step explicit.
+Run the Python commands above in order. If the original audio is already complete, skip only the `download_dataset.py` command.
 
 For a quick inspection of existing result figures, open `03_评估与汇报/reports/figures/`. `analyze_results.py` can regenerate these from the committed result tables without raw audio. `verify_results.py` requires the locally generated feature matrix and model files; its committed JSON is a record of the original run, not an automatic verification of a new checkout.
 
