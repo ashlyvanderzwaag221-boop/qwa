@@ -2,7 +2,7 @@
 
 **Responsible: 茅人方.** Train the majority reference, RBF-SVM and random forest on the same features and split.
 
-`experiment.py` is the current training entry. It loads the first stage's full feature matrix, excludes source overlap, fits preprocessing only on training data, selects hyperparameters by validation Macro-F1, and saves models and per-clip predictions.
+`experiment.py` trains the milestone models. It loads the first stage's full feature matrix, excludes source overlap, fits preprocessing only on training data, selects hyperparameters by validation Macro-F1, and saves models and per-clip predictions. The third report reuses its SVM fitting code for the controlled class-weight comparison. [Class-weight experiment](../03_评估与汇报/evidence/progress/fold9_diagnostics.py) · [Outer ten-fold training](../00_公共支持/pipeline.py#L83-L139)
 
 - Training: folds 1-8 after excluding 79 overlapping-source clips (7,000 clips).
 - Validation: fold 9 (816 clips), also used for model selection.

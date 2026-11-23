@@ -1,12 +1,27 @@
 # Urban Sound Classification and Robustness to Noise
 
-Machine Learning course project - **Milestone / development validation**.
+Machine Learning course project. **Third project report**.
 
 We classify short environmental recordings into ten UrbanSound8K sound categories using 40 MFCC summary features. Following proposal feedback, our SVM uses an **RBF kernel**. We compare it with a random forest and a majority-class reference.
 
-**Start here:** [one-page milestone report](03_评估与汇报/reports/Milestone_Report.pdf), [model results](02_模型训练/results/metrics.csv), [training code](02_模型训练/experiment.py), and [evaluation protocol](02_模型训练/results/protocol.json).
+## Progress since the milestone
 
-## Completed work and evidence
+At the milestone we tuned on 816 validation clips in fold 9. We have now tested each of three classifiers on all 8,732 clean clips across the ten official folds. In each round we held one fold out, tuned on the next fold by macro-F1, refitted on eligible clips from the nine remaining folds, and scored the test fold once. We checked that the original recording IDs were disjoint across partitions. [Training code](00_公共支持/pipeline.py#L83-L139) · [Reproduction guide](03_评估与汇报/evidence/progress/README.md)
+
+| Model | Mean test accuracy | Mean test macro-F1 |
+|---|---:|---:|
+| RBF-SVM | 64.66% | 0.6585 |
+| Random forest | 63.76% | 0.6414 |
+| Majority-class baseline | 10.33% | 0.0187 |
+
+Each test fold has equal weight in these means. The SVM led on macro-F1 in seven folds. The forest led on folds 1, 2 and 8. We recalculated the scores from all 30 confusion matrices. [Per-fold results and settings](03_评估与汇报/evidence/progress/tenfold_results.json) · [Verification code](03_评估与汇报/evidence/progress/verify_tenfold.py) · [Verified summary](03_评估与汇报/evidence/progress/tenfold_summary.json)
+
+- **Class-weight comparison.** We held the 7,000 training clips, 816 fold-9 validation clips, features and RBF-SVM settings fixed. Using inverse-frequency class weights changed macro-F1 from 0.7023 to 0.7001 and correct predictions from 562 to 561 on that split. [Experiment code](03_评估与汇报/evidence/progress/fold9_diagnostics.py) · [Class-weight results](03_评估与汇报/evidence/progress/fold9_diagnostics.json)
+- **Error tracing.** The milestone SVM labeled 43 of 100 fold-9 air-conditioner clips as drilling. Two original recordings supplied 38 of those errors. On the same 100 clips, the outer-fold SVM labeled 18 as drilling and correctly recognized 20, up from 19. Both training size and C changed between these two fits. [Original per-clip predictions](02_模型训练/results/predictions.csv) · [Recording-level counts](03_评估与汇报/evidence/progress/fold9_diagnostics.json)
+
+## Milestone work and evidence
+
+The [one-page milestone report](03_评估与汇报/reports/Milestone_Report.pdf), [development results](02_模型训练/results/metrics.csv), [training code](02_模型训练/experiment.py) and [split protocol](02_模型训练/results/protocol.json) document the earlier fold-9 experiment.
 
 | Work completed | Inspectable evidence |
 |---|---|
@@ -20,7 +35,7 @@ We classify short environmental recordings into ten UrbanSound8K sound categorie
 
 The repository contains code, public metadata, experiment settings and recorded results. Raw audio, local environments, feature caches and trained model binaries are generated locally and are excluded from Git.
 
-## Current results
+## Milestone results on fold 9
 
 All entries use the same 816 validation clips in official fold 9.
 
@@ -30,7 +45,7 @@ All entries use the same 816 validation clips in official fold 9.
 | RBF-SVM | **68.87%** | **0.7023** | C=10; gamma=scale |
 | Random forest | 66.42% | 0.6656 | 200 trees; max_depth=20; min_samples_leaf=1 |
 
-**These are model-selection validation scores, not independent test results.** We used this validation set to select hyperparameters. The learned-model ten-fold evaluation and added-noise experiments have not yet been performed. The results are not directly comparable with published ten-fold benchmark averages.
+We used these 816 clips to choose the milestone settings. The ten-fold results above use test folds held out during tuning.
 
 ![Validation model comparison](03_评估与汇报/reports/figures/model_comparison.png)
 
@@ -43,7 +58,7 @@ All entries use the same 816 validation clips in official fold 9.
 - **Features:** 20 MFCCs; n_fft=2048, hop_length=512, n_mels=128. Concatenate each coefficient's temporal mean and standard deviation to obtain 40 features per clip.
 - **SVM scaling:** fit StandardScaler on training features only; apply that fitted scaler to validation features.
 
-## Split and leakage controls
+## Milestone split and leakage controls
 
 | Partition | Official folds | Clips |
 |---|---|---:|
@@ -54,7 +69,7 @@ All entries use the same 816 validation clips in official fold 9.
 
 We found source 180937 in both folds 1 and 9. Its 79 fold-1 clips are excluded from training; the original audio files are retained. The check uses **original recording-source IDs**, not only duplicate filenames. All models share this split, recorded in the [split manifest](02_模型训练/results/split_manifest.csv).
 
-The fixed, label-only majority-baseline arithmetic test includes a historical ten-fold reference. It does not train or tune an audio classifier and is separate from the fold-9 comparison above. It is not evidence that final learned-model ten-fold evaluation is complete.
+The label-only ten-fold reference is a fixture for the majority-baseline arithmetic test. The third report records the trained models' scores and split checks for every outer fold. [Clean ten-fold evaluation](03_评估与汇报/evidence/progress/)
 
 ## Repository structure and team responsibilities
 
@@ -67,7 +82,7 @@ Keep these folders together: the scripts use paths relative to the repository ro
 | `02_模型训练/` | Baselines, hyperparameter search and prediction records | 茅人方 |
 | `03_评估与汇报/` | Evaluation, reproducibility checks, report and future noise experiments | 程志阳 |
 
-The main training entry is `02_模型训练/experiment.py`. The shared `pipeline.py` also contains legacy utilities; use the documented commands below for the current source-checked milestone protocol.
+Use `02_模型训练/experiment.py` for the milestone tuning experiment. The third report uses the `train --mode final` command in `00_公共支持/pipeline.py`. [Third-report commands](03_评估与汇报/evidence/progress/README.md)
 
 ## Reproduce the work
 
@@ -112,12 +127,9 @@ After running feature extraction and model verification, regenerate the report w
 .\.venv\Scripts\python.exe '.\03_评估与汇报\build_report.py'
 ```
 
-## Problems and next steps
+## Remaining work
 
-1. **Source leakage:** related clips can share background acoustics and make validation look better than generalization to new environments. We audited source IDs and excluded 79 training clips. Future outer-fold evaluations need the same source checks in every split.
-2. **Class imbalance:** Macro-F1 gives each class equal weight in evaluation; it does not change training sample counts. We have not yet tested whether class weighting or oversampling helps.
-3. **Error interpretation:** RBF-SVM classified 43 of 100 validation air-conditioner clips as drilling. Similar spectra, background interference, and loss of temporal order in MFCC aggregation are hypotheses, not established causes. Next we will listen to errors and compare feature representations.
-4. **Next experiments:** freeze the protocol, perform outer ten-fold evaluation with tuning restricted to each outer training partition, and test added white noise at 20, 10 and 0 dB SNR. Report variation across folds and per-class errors.
+Across the ten clean test folds, the SVM labeled 250 of 1,000 air-conditioner clips as engine idling. This was its most frequent wrong-label pair. The archived outer-fold records contain settings and aggregate counts. We will replay the fits, log clip IDs and predicted labels, and check that the clean matrices match. We will then compare clean audio with white noise at 20, 10 and 0 dB SNR, listen to correct and misclassified clips, and test 40 whole-clip features against 80 features from two halves. [Pooled error counts](03_评估与汇报/evidence/progress/tenfold_summary.json)
 
 ## Data sources and attribution
 

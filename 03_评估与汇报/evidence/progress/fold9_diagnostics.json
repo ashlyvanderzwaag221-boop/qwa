@@ -1,0 +1,88 @@
+{
+  "validation_fold": 9,
+  "source_audit": {
+    "air_conditioner_clips": 100,
+    "air_conditioner_sources": 6,
+    "predicted_drilling": 43,
+    "sources_contributing_errors": 3,
+    "errors_from_two_largest_contributors": 38,
+    "by_source": [
+      {
+        "fsID": "75743",
+        "clips": 24,
+        "as_drilling": 22
+      },
+      {
+        "fsID": "101729",
+        "clips": 27,
+        "as_drilling": 16
+      },
+      {
+        "fsID": "79089",
+        "clips": 27,
+        "as_drilling": 5
+      },
+      {
+        "fsID": "165454",
+        "clips": 13,
+        "as_drilling": 0
+      },
+      {
+        "fsID": "189988",
+        "clips": 6,
+        "as_drilling": 0
+      },
+      {
+        "fsID": "189989",
+        "clips": 3,
+        "as_drilling": 0
+      }
+    ]
+  },
+  "class_weight_comparison": {
+    "scope": "Controlled comparison on the milestone development fold; no oversampling.",
+    "parameters": {
+      "kernel": "rbf",
+      "C": 10,
+      "gamma": "scale"
+    },
+    "train_clips": 7000,
+    "validation_clips": 816,
+    "scores": {
+      "unweighted": {
+        "accuracy": 0.6887254901960784,
+        "macro_f1": 0.7022612872369678,
+        "correct": 562,
+        "per_class_f1": {
+          "air_conditioner": 0.2814814814814815,
+          "car_horn": 0.7142857142857143,
+          "children_playing": 0.6985645933014354,
+          "dog_bark": 0.6893203883495146,
+          "drilling": 0.5198237885462555,
+          "engine_idling": 0.8977272727272727,
+          "gun_shot": 0.9152542372881356,
+          "jackhammer": 0.6783625730994152,
+          "siren": 0.9642857142857143,
+          "street_music": 0.6635071090047393
+        }
+      },
+      "balanced": {
+        "accuracy": 0.6875,
+        "macro_f1": 0.7001278205889306,
+        "correct": 561,
+        "per_class_f1": {
+          "air_conditioner": 0.2835820895522388,
+          "car_horn": 0.6933333333333334,
+          "children_playing": 0.7081339712918661,
+          "dog_bark": 0.6831683168316832,
+          "drilling": 0.5130434782608696,
+          "engine_idling": 0.903954802259887,
+          "gun_shot": 0.9122807017543859,
+          "jackhammer": 0.6823529411764706,
+          "siren": 0.9642857142857143,
+          "street_music": 0.6571428571428571
+        }
+      }
+    }
+  }
+}
