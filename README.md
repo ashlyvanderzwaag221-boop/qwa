@@ -120,13 +120,6 @@ Run the Python commands above in order. If the original audio is already complet
 
 For a quick inspection of existing result figures, open `03_评估与汇报/reports/figures/`. `analyze_results.py` can regenerate these from the committed result tables without raw audio. `verify_results.py` requires the locally generated feature matrix and model files; its committed JSON is a record of the original run, not an automatic verification of a new checkout.
 
-After running feature extraction and model verification, regenerate the report with:
-
-```powershell
-.\.venv\Scripts\python.exe -m pip install -r '.\00_公共支持\requirements-report.txt'
-.\.venv\Scripts\python.exe '.\03_评估与汇报\build_report.py'
-```
-
 ## Remaining work
 
 Across the ten clean test folds, the SVM labeled 250 of 1,000 air-conditioner clips as engine idling. This was its most frequent wrong-label pair. The archived outer-fold records contain settings and aggregate counts. We will replay the fits, log clip IDs and predicted labels, and check that the clean matrices match. We will then compare clean audio with white noise at 20, 10 and 0 dB SNR, listen to correct and misclassified clips, and test 40 whole-clip features against 80 features from two halves. [Pooled error counts](03_评估与汇报/evidence/progress/tenfold_summary.json)

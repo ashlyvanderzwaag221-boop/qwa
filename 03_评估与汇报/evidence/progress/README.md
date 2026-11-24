@@ -9,7 +9,6 @@ The clean-audio results cover ten outer test folds. The class-weight comparison 
 | [verify_tenfold.py](verify_tenfold.py) | Checks clip coverage, the feature archive and recording-source separation, then recalculates the scores. |
 | [fold9_diagnostics.json](fold9_diagnostics.json) | Counts by source recording and results of the controlled class-weight comparison. |
 | [fold9_diagnostics.py](fold9_diagnostics.py) | Groups saved validation predictions by source and reproduces the two SVM fits under identical conditions. |
-| [build_progress_report.py](../../build_progress_report.py) | Builds the one-page third report using the archived results and milestone predictions. |
 
 ## Check the error trace from a fresh clone
 
@@ -33,12 +32,3 @@ python "03_评估与汇报/evidence/progress/fold9_diagnostics.py" --project-roo
 
 The report table gives each outer fold equal weight. Pooled scores in the JSON combine all predictions before calculating metrics and can differ from the table. The fold-9 comparisons are development diagnostics.
 
-## Regenerate the third report
-
-The PDF builder reads the committed results, including `tenfold_summary.json` beside `tenfold_results.json`. It uses Segoe UI, Georgia and Microsoft YaHei from the Windows Fonts directory. From the project root, run the following in the same environment.
-
-```powershell
-python -m pip install -r "00_公共支持/requirements-report.txt"
-$progressDir = "03_评估与汇报/evidence/progress"
-python "03_评估与汇报/build_progress_report.py" "$progressDir/tenfold_results.json" "02_模型训练/results/predictions.csv" "$progressDir/fold9_diagnostics.json" "rerun_progress_report.pdf"
-```

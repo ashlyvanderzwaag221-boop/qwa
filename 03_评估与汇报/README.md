@@ -11,6 +11,6 @@
 
 The repository includes the report and numerical evidence. Slides, speaker notes, local archives, caches and temporary logs remain in the local course workspace.
 
-The third report adds clean ten-fold results for all three models, a fold-9 SVM class-weight comparison and a recording-level audit of the milestone errors. The progress directory contains the verification scripts, fold settings, confusion matrices and diagnostic results. [Third-report evidence and commands](evidence/progress/README.md) · [One-page report builder](build_progress_report.py)
+The third report adds clean ten-fold results for all three models, a fold-9 SVM class-weight comparison and a recording-level audit of the milestone errors. The progress directory contains the verification scripts, fold settings, confusion matrices and diagnostic results. [Third-report evidence and commands](evidence/progress/README.md)
 
 The next experiments will log individual outer-fold predictions and compare performance under added white noise and alternative time-based features. [Current results and remaining work](../README.md)

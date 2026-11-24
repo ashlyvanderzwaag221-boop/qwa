@@ -13,3 +13,8 @@ __pycache__/
 *.pyc
 *.tmp
 .DS_Store
+
+# Local report and slide authoring scripts
+00_*/requirements-report.txt
+03_*/build*report.py
+03_*/populate_deck.mjs
